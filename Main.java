@@ -2,12 +2,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Inventory {
-  String name, serialNum, value;
-  public Inventory (String name, String serialNum, String value) {
+// Assigning Values
+  String name, serialNum;
+  int value;
+// Getter
+  public Inventory (String name, String serialNum, int value) {
     this.name = name;
     this.serialNum = serialNum;
     this.value = value;
   } 
+// Print Values
   public String print() {
     return this.name + "," + this.serialNum + "," + this.value;
   }
@@ -19,7 +23,8 @@ class Main {
     Scanner scan = new Scanner(System.in);
     int input = 0;
     ArrayList<Inventory> inventory = new ArrayList<Inventory>();
-    String name, serialNum, value;
+    String name, serialNum;
+    int value;
     
   // First Loop Output
     System.out.println("Press 1 to add an item.\n" +
@@ -33,6 +38,7 @@ class Main {
     while (input != 5) {
     // Switch Case
       switch (input) {
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         case 1:
         // Ignore Next Line
           scan.nextLine();
@@ -47,10 +53,12 @@ class Main {
         // Output
           System.out.println("Enter the value in dollars (whole number):");
         // Input
-          value = scan.nextLine();
+          value = scan.nextInt();
         // Saving
           inventory.add(new Inventory(name, serialNum, value));
           break;
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
         case 2:
         // Ignore Next Line
           scan.nextLine();
@@ -64,6 +72,7 @@ class Main {
             { inventory.remove(inventory.get(i)); }
           }
           break;
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         case 3:
         // Ignore Next Line
           scan.nextLine();
@@ -84,8 +93,9 @@ class Main {
         // Output
           System.out.println("Enter the new value in dollars (whole number):");
         // Input
-          inventory.get(update).value = scan.nextLine();
+          inventory.get(update).value = scan.nextInt();
           break;
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         case 4:
         // Output
           for (Inventory i : inventory) {
